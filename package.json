@@ -1,0 +1,32 @@
+{
+  "name": "goblet-of-fire-polls-contracts",
+  "version": "1.0.0",
+  "description": "Blockchain contracts for Goblet of Fire DApp",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/M-ZubairAhmed/goblet-of-fire-polls-contracts.git"
+  },
+  "bugs": {
+    "url": "https://github.com/M-ZubairAhmed/goblet-of-fire-polls-contracts/issues"
+  },
+  "homepage": "https://github.com/M-ZubairAhmed/goblet-of-fire-polls-contracts#readme",
+  "scripts": {
+    "migrate": "./node_modules/.bin/truffle migrate",
+    "tests": "./node_modules/.bin/truffle test",
+    "pretty": "./node_modules/.bin/prettier --write '**/*.{js,json,sol,scss,html}'",
+    "console": "./node_modules/.bin/truffle console",
+    "clean": "rm -rf node_modules package-lock.json"
+  },
+  "author": "M-ZubairAhmed",
+  "license": "MIT",
+  "devDependencies": {
+    "prettier": "^2.1.2",
+    "prettier-plugin-solidity": "^1.0.0-alpha.59",
+    "solhint": "^3.2.2",
+    "solhint-plugin-prettier": "0.0.5",
+    "truffle": "^5.1.49"
+  }
+}
