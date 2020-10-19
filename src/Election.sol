@@ -22,6 +22,7 @@ contract Election {
     addCandidate("Viktor Krum", "Durmstrang Institute");
   }
 
+  // To add list of candidates to election
   function addCandidate(
     string memory _candidateName,
     string memory _candidateSchool
