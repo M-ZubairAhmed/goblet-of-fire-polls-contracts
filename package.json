@@ -15,6 +15,7 @@
   "homepage": "https://github.com/M-ZubairAhmed/goblet-of-fire-polls-contracts#readme",
   "scripts": {
     "migrate": "./node_modules/.bin/truffle migrate",
+    "migrate:reset": "./node_modules/.bin/truffle migrate --reset",
     "tests": "./node_modules/.bin/truffle test",
     "pretty": "./node_modules/.bin/prettier --write '**/*.{js,json,sol,scss,html}'",
     "console": "./node_modules/.bin/truffle console",
