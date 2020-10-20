@@ -16,6 +16,11 @@ contract Election {
   // To keep track of list of candidates in election
   uint256 public numberOfCandidates;
 
+  // Persists all voters address in storage
+  mapping(address => bool) public voters;
+
+  event VoteCasted(uint256 _candidateId);
+
   constructor() public {
     addCandidate("Cedric Diggory", "Hogwarts School");
     addCandidate("Fleur Delacour", "Beauxbatons Academy of Magic");
@@ -27,12 +32,36 @@ contract Election {
     string memory _candidateName,
     string memory _candidateSchool
   ) private {
+    // increment candidate id
     numberOfCandidates++;
+
+    // store candidates into the mapping
     candidates[numberOfCandidates] = Candidate(
       numberOfCandidates,
       _candidateName,
       _candidateSchool,
       0
     );
+  }
+
+  // To vote for a candidate
+  function voteCandidate(uint256 _candidateId) public {
+    // check if voter has not voted before
+    require(!voters[msg.sender], "User already voted");
+
+    // check if vote is towards valid candidate
+    require(
+      _candidateId > 0 && _candidateId <= numberOfCandidates,
+      "Invalid candidate to vote for"
+    );
+
+    // if all conditions are valid then proceed by adding the voter to mapping
+    voters[msg.sender] = true;
+
+    // up the candidates votes
+    candidates[_candidateId].votes++;
+
+    // send off an event that vote has been casted
+    emit VoteCasted(_candidateId);
   }
 }
